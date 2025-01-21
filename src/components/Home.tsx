@@ -4,6 +4,7 @@ import React, { useEffect } from "react";
 import { FlipWords } from "@/components/ui/flip-words";
 import { Spotlight } from "@/components/ui/spotlight";
 import { motion } from "framer-motion";  // Import motion dari framer-motion
+import Image from "next/image";
 
 export function Dashboard() {
     const words = ["Frontend Developer", "Software Engineer"];
@@ -40,10 +41,12 @@ export function Dashboard() {
                 animate={{ x: 0, opacity: 1 }}    // Akhirnya di posisi normal
                 transition={{ duration: 1 }}       // Durasi animasi
             >
-                <img
+                <Image
                     src="/images/surya.png"
                     alt="Surya Hidayatullah Firdaus"
                     className="max-w-full h-auto rounded-lg shadow-lg"
+                    width={500}  // Set the width of the image
+                    height={500}
                 />
             </motion.div>
         </div>

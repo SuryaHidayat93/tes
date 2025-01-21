@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
 import { AnimatedTooltip } from "@/components/ui/animated-tooltip";
 import { motion } from "framer-motion";  // Import motion dari framer-motion
+import Image from "next/image";
 
 interface TextChar {
     char: string;
@@ -127,14 +128,21 @@ export default function About() {
         <div ref={aboutRef} className="flex flex-col md:flex-row items-center justify-center min-h-screen bg-backgroud px-4 md:px-0">
             <div className="flex flex-col items-center md:items-end justify-center w-full md:w-1/2 h-auto md:h-[100vh] mb-8 md:mb-0">
                 {/* Gambar dengan animasi pergerakan masuk saat di-scroll */}
-                <motion.img
-                    src="/images/a.png"
-                    alt="About Me"
-                    className="transition duration-300 ease-in-out transform w-64 md:w-96 h-auto hover:grayscale-0 grayscale md:mr-28"
+                <motion.div
                     initial={{ opacity: 0, x: 100 }} // Mulai dari opacity 0 dan sedikit bergeser
                     animate={{ opacity: hasScrolledIntoView ? 1 : 0, x: hasScrolledIntoView ? 0 : 100 }} // Animasi menuju posisi normal
                     transition={{ duration: 1 }} // Durasi animasi
-                />
+                    className="w-64 md:w-96 h-auto hover:grayscale-0 grayscale md:mr-28"
+                >
+                    <Image
+                        src="/images/a.png"
+                        alt="About Me"
+                        width={400} // Tentukan ukuran lebar yang sesuai
+                        height={400} // Tentukan ukuran tinggi yang sesuai
+                        className="transition duration-300 ease-in-out transform"
+                    />
+                </motion.div>
+
             </div>
             <div className="flex flex-col items-center md:items-start justify-center w-full md:w-1/2 h-auto md:h-[100vh]">
                 <div className="flex flex-col items-center md:items-start md:ml-28 gap-5 w-full max-w-[500px]">
