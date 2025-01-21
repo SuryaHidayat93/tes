@@ -49,11 +49,13 @@ export default function About() {
     useEffect(() => {
         if (hasScrolledIntoView) {
             const handleScroll = () => {
-                const rect = paragraphRef.current.getBoundingClientRect();
-                const scrollTop = window.scrollY;
-                const windowHeight = window.innerHeight;
-                const progress = Math.min(Math.max((scrollTop - rect.top + windowHeight) / (windowHeight + rect.height), 0), 1);
-                setScrollProgress(progress);
+                if (paragraphRef.current) {  // Tambahkan pengecekan ini
+                    const rect = paragraphRef.current.getBoundingClientRect();
+                    const scrollTop = window.scrollY;
+                    const windowHeight = window.innerHeight;
+                    const progress = Math.min(Math.max((scrollTop - rect.top + windowHeight) / (windowHeight + rect.height), 0), 1);
+                    setScrollProgress(progress);
+                }
             };
 
             window.addEventListener("scroll", handleScroll);
@@ -63,6 +65,7 @@ export default function About() {
             };
         }
     }, [hasScrolledIntoView]);
+
 
     useEffect(() => {
         if (scrollProgress > 0) {
