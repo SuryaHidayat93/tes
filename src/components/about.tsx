@@ -135,7 +135,7 @@ export default function About() {
                     className="w-64 md:w-96 h-auto hover:grayscale-0 grayscale md:mr-28"
                 >
                     <Image
-                        src="/images/a.png"
+                        src="/images/Foto1.png"
                         alt="About Me"
                         width={400} // Tentukan ukuran lebar yang sesuai
                         height={400} // Tentukan ukuran tinggi yang sesuai

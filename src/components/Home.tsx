@@ -42,7 +42,7 @@ export function Dashboard() {
                 transition={{ duration: 1 }}       // Durasi animasi
             >
                 <Image
-                    src="/images/surya.png"
+                    src="/images/Foto2.png"
                     alt="Surya Hidayatullah Firdaus"
                     className="max-w-full h-auto rounded-lg shadow-lg"
                     width={500}  // Set the width of the image
