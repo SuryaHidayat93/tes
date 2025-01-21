@@ -9,11 +9,12 @@ interface TextChar {
     char: string;
     color: string;
 }
+
 export default function About() {
     const [displayedText, setDisplayedText] = useState<TextChar[]>([]);
     const fullText = `Hello! My name is Surya Hidayat, and I am an Informatics Engineering student at Sultan Syarif Kasim State Islamic University, Riau. I have a strong passion for web and mobile development. With an academic background in Informatics Engineering, I focus on programming, particularly in Android mobile app development and modern web applications. I am always eager to learn new technologies and apply them to practical projects. Additionally, I am also interested in front-end and back-end development for web applications. I believe that technology has the power to solve various challenges in everyday life, and I am committed to continually learning and contributing to this field.`;
 
-    const paragraphRef = useRef(null);
+    const paragraphRef = useRef<HTMLParagraphElement>(null); // Perbaikan di sini
     const aboutRef = useRef(null);
     const [hasScrolledIntoView, setHasScrolledIntoView] = useState(false);
     const [scrollProgress, setScrollProgress] = useState(0);
@@ -49,7 +50,7 @@ export default function About() {
     useEffect(() => {
         if (hasScrolledIntoView) {
             const handleScroll = () => {
-                if (paragraphRef.current) {  // Tambahkan pengecekan ini
+                if (paragraphRef.current) {
                     const rect = paragraphRef.current.getBoundingClientRect();
                     const scrollTop = window.scrollY;
                     const windowHeight = window.innerHeight;
@@ -65,7 +66,6 @@ export default function About() {
             };
         }
     }, [hasScrolledIntoView]);
-
 
     useEffect(() => {
         if (scrollProgress > 0) {
