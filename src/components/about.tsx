@@ -5,8 +5,12 @@ import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
 import { AnimatedTooltip } from "@/components/ui/animated-tooltip";
 import { motion } from "framer-motion";  // Import motion dari framer-motion
 
+interface TextChar {
+    char: string;
+    color: string;
+}
 export default function About() {
-    const [displayedText, setDisplayedText] = useState([]);
+    const [displayedText, setDisplayedText] = useState<TextChar[]>([]);
     const fullText = `Hello! My name is Surya Hidayat, and I am an Informatics Engineering student at Sultan Syarif Kasim State Islamic University, Riau. I have a strong passion for web and mobile development. With an academic background in Informatics Engineering, I focus on programming, particularly in Android mobile app development and modern web applications. I am always eager to learn new technologies and apply them to practical projects. Additionally, I am also interested in front-end and back-end development for web applications. I believe that technology has the power to solve various challenges in everyday life, and I am committed to continually learning and contributing to this field.`;
 
     const paragraphRef = useRef(null);
